@@ -1,0 +1,212 @@
+{
+  "design": {
+    "design_info": {
+      "boundary_crc": "0x0",
+      "device": "xc7s25csga225-2",
+      "gen_directory": "../../../../CPU.gen/sources_1/bd/hoffmann_cpu",
+      "name": "hoffmann_cpu",
+      "rev_ctrl_bd_flag": "RevCtrlBdOff",
+      "synth_flow_mode": "Hierarchical",
+      "tool_version": "2022.2"
+    },
+    "design_tree": {
+      "FreqDivider_0": "",
+      "hoffmann_0": "",
+      "blk_mem_gen_0": ""
+    },
+    "ports": {
+      "reset": {
+        "type": "rst",
+        "direction": "I"
+      },
+      "clk": {
+        "type": "clk",
+        "direction": "I",
+        "parameters": {
+          "FREQ_HZ": {
+            "value": "100000000"
+          }
+        }
+      },
+      "program_enable": {
+        "direction": "I"
+      },
+      "next_program_address": {
+        "direction": "I"
+      },
+      "in_port": {
+        "direction": "I",
+        "left": "31",
+        "right": "0"
+      },
+      "out_port": {
+        "direction": "O",
+        "left": "31",
+        "right": "0"
+      },
+      "in_strobe": {
+        "direction": "O"
+      },
+      "out_strobe": {
+        "direction": "O"
+      }
+    },
+    "components": {
+      "FreqDivider_0": {
+        "vlnv": "xilinx.com:module_ref:FreqDivider:1.0",
+        "xci_name": "hoffmann_cpu_FreqDivider_0_1",
+        "xci_path": "ip\\hoffmann_cpu_FreqDivider_0_1\\hoffmann_cpu_FreqDivider_0_1.xci",
+        "inst_hier_path": "FreqDivider_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "FreqDivider",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "in_clk": {
+            "type": "clk",
+            "direction": "I"
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "out_clk": {
+            "type": "clk",
+            "direction": "O"
+          }
+        }
+      },
+      "hoffmann_0": {
+        "vlnv": "xilinx.com:module_ref:hoffmann:1.0",
+        "xci_name": "hoffmann_cpu_hoffmann_0_1",
+        "xci_path": "ip\\hoffmann_cpu_hoffmann_0_1\\hoffmann_cpu_hoffmann_0_1.xci",
+        "inst_hier_path": "hoffmann_0",
+        "reference_info": {
+          "ref_type": "hdl",
+          "ref_name": "hoffmann",
+          "boundary_crc": "0x0"
+        },
+        "ports": {
+          "clk": {
+            "type": "clk",
+            "direction": "I",
+            "parameters": {
+              "ASSOCIATED_RESET": {
+                "value": "reset",
+                "value_src": "constant"
+              }
+            }
+          },
+          "reset": {
+            "type": "rst",
+            "direction": "I"
+          },
+          "program": {
+            "direction": "I"
+          },
+          "next_program_address": {
+            "direction": "I"
+          },
+          "in_port": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "out_port": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          },
+          "in_strobe": {
+            "direction": "O"
+          },
+          "out_strobe": {
+            "direction": "O"
+          },
+          "instruction_data_bus": {
+            "direction": "I",
+            "left": "31",
+            "right": "0"
+          },
+          "instruction_address_bus": {
+            "direction": "O",
+            "left": "31",
+            "right": "0"
+          }
+        }
+      },
+      "blk_mem_gen_0": {
+        "vlnv": "xilinx.com:ip:blk_mem_gen:8.4",
+        "xci_name": "hoffmann_cpu_blk_mem_gen_0_3",
+        "xci_path": "ip\\hoffmann_cpu_blk_mem_gen_0_3\\hoffmann_cpu_blk_mem_gen_0_3.xci",
+        "inst_hier_path": "blk_mem_gen_0",
+        "parameters": {
+          "Write_Depth_A": {
+            "value": "30000"
+          },
+          "use_bram_block": {
+            "value": "Stand_Alone"
+          }
+        }
+      }
+    },
+    "nets": {
+      "FreqDivider_0_out_clk": {
+        "ports": [
+          "FreqDivider_0/out_clk",
+          "hoffmann_0/clk"
+        ]
+      },
+      "clk_1": {
+        "ports": [
+          "clk",
+          "FreqDivider_0/in_clk"
+        ]
+      },
+      "hoffmann_0_in_strobe": {
+        "ports": [
+          "hoffmann_0/in_strobe",
+          "in_strobe"
+        ]
+      },
+      "hoffmann_0_out_port": {
+        "ports": [
+          "hoffmann_0/out_port",
+          "out_port"
+        ]
+      },
+      "hoffmann_0_out_strobe": {
+        "ports": [
+          "hoffmann_0/out_strobe",
+          "out_strobe"
+        ]
+      },
+      "in_port_1": {
+        "ports": [
+          "in_port",
+          "hoffmann_0/in_port"
+        ]
+      },
+      "next_program_address_1": {
+        "ports": [
+          "next_program_address",
+          "hoffmann_0/next_program_address"
+        ]
+      },
+      "program_enable_1": {
+        "ports": [
+          "program_enable",
+          "hoffmann_0/program"
+        ]
+      },
+      "reset_1": {
+        "ports": [
+          "reset",
+          "FreqDivider_0/reset",
+          "hoffmann_0/reset"
+        ]
+      }
+    }
+  }
+}
