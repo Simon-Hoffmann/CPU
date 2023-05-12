@@ -1,2 +1,2 @@
-# CPU
+# 32Bit Custom CPU
  Custom CPU implementaion
