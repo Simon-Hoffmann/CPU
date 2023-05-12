@@ -2,11 +2,11 @@
 
 Personal project of a 32Bit custom CPU programmed in Verilog
 
-##Register overview:
+## Register overview:
 
 ![Registers](/Docs/Images/Registers.png)
 
-##CPU Opcodes
+## CPU Opcodes
 
 The CPU currently has a limited amount of supported opcodes
 
